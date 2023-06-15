@@ -1,11 +1,11 @@
-// Optimised solution 
+// Most optimised solution 
+// TC = O(nm), SC = O(1)
 void setZeros(vector<vector<int>> &matrix)
 {
 	int col0 = 1;
 	int m = matrix[0].size();
 	int n = matrix.size();
 
-	
 	for(int i=0;  i<n; i++){
 		for(int j=0; j<m; j++){
 
@@ -22,7 +22,6 @@ void setZeros(vector<vector<int>> &matrix)
 		for(int j=1; j<m; j++){
 			
 			if(matrix[i][j] != 0){
-
 				if (matrix[0][j] == 0 || matrix[i][0] == 0) {
 					matrix[i][j] = 0;
 				}
