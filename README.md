@@ -1,5 +1,4 @@
 # StriverSDESheetChallenge-2023
-# StriverSheetChallenge
 
 Welcome to the Striver SDE Sheet Challenge 2023! 
 
