@@ -10,9 +10,7 @@ long long maxSubarraySum(int arr[], int n)
         if(currsum < 0){
             currsum = 0;
         }
-        if(currsum > sum){
-            sum = currsum;
-        }
+        sum = max(sum, currsum);
     }
     return sum;
 }
