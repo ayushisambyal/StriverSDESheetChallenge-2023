@@ -7,9 +7,7 @@ long long maxSubarraySum(int arr[], int n)
     for(int i=0; i<n; i++){
         currsum += arr[i];
 
-        if(currsum < 0){
-            currsum = 0;
-        }
+        if(currsum < 0) currsum = 0;
         sum = max(sum, currsum);
     }
     return sum;
