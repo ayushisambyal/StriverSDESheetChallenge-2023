@@ -13,9 +13,8 @@ void fxn(int idx, int sum, vector<int> &arr, int N, vector<int> &ans){
 
 vector<int> subsetSum(vector<int> &num){
 	vector<int> ans;
-	int n = num.size();
     
-	fxn(0, 0, num, n, ans);
+	fxn(0, 0, num, num.size(), ans);
 	sort(ans.begin(), ans.end());
 	return ans;	
 }
