@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 void fxn(int idx, int sum, vector<int> &arr, int N, vector<int> &ans){
-	if (idx == N) {
+	if (idx == N){
 		ans.push_back(sum);
 		return;
 	}
@@ -13,7 +13,9 @@ void fxn(int idx, int sum, vector<int> &arr, int N, vector<int> &ans){
 
 vector<int> subsetSum(vector<int> &num){
 	vector<int> ans;
-	fxn(0, 0, num, num.size(), ans);
+	int n = num.size();
+    
+	fxn(0, 0, num, n, ans);
 	sort(ans.begin(), ans.end());
 	return ans;	
 }
