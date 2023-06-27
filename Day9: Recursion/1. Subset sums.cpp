@@ -5,7 +5,7 @@ void fxn(int idx, int sum, vector<int> &arr, int N, vector<int> &ans){
 		ans.push_back(sum);
 		return;
 	}
-        // pick
+  // pick
 	fxn(idx+1, sum+arr[idx], arr, N, ans);
 	// not pick
 	fxn(idx+1, sum, arr, N, ans);
