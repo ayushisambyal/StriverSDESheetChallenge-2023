@@ -9,8 +9,8 @@ bool ispossible(vector<int> &arr, int minD, int c){
 			lastposition = arr[i];
 		}
 		if(cnt >= c) return 1;
-		else return 0;
 	}
+	return 0;
 }
 
 int chessTournament(vector<int> positions , int n ,  int c){
