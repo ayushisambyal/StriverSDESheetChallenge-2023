@@ -11,7 +11,7 @@
         TreeNode(int x, TreeNode *left, TreeNode *right) : data(x), left(left), right(right) {}
     };
 */
-vector<int> getInOrderTraversal(TreeNode *root)
+vector<int> getPreOrderTraversal(TreeNode *root)
 {
     vector<int> ans;
     TreeNode * cur = root;
@@ -31,12 +31,12 @@ vector<int> getInOrderTraversal(TreeNode *root)
             // if we reached rightmost - create the thread
             if(temp->right == NULL){
                 temp->right = cur;
+                ans.push_back(cur->data);
                 cur = cur->left; // move left
             }
             // 2nd traversal - time to break threads
             else{
                 temp->right = NULL;
-                ans.push_back(cur->data);
                 cur = cur->right;
             }
         }
