@@ -1,4 +1,3 @@
-
 void helper(BinaryTreeNode<int>* root, vector<int>& currentPath, vector<string>& paths) {
     if (root == NULL) return;
 
