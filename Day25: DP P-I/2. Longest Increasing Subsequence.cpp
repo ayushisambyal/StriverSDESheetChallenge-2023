@@ -1,6 +1,4 @@
 //Recursion
-
-
 int f(int arr[], int idx, int prev, int n){
     if(idx==n) return 0;
     int take=0;
@@ -52,6 +50,7 @@ int longestIncreasingSubsequence(int arr[], int n)
     }
     return dp[0][0];
 }
+
 //DP :- Space Optimisation
 #include <vector>
 int longestIncreasingSubsequence(int arr[], int n)
