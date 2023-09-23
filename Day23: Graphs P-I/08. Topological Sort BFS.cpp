@@ -1,15 +1,22 @@
 #include <bits/stdc++.h>
 vector<int> topologicalSort(vector<vector<int>> &edges, int v, int e)  {
+    
+    // create adj list from edges
     vector<int> adj[v];
     for(auto p : edges){
         adj[p[0]].push_back(p[1]);
     }
+
     vector<int> ans;
+    
+    // create indegree array
     vector<int> indegree(v,0);
     for(auto p : edges){
         indegree[p[1]]++;
     }
+
     vector<int> vis(v+1,0);
+    
     for(int i=0; i<v; i++){
         if(!vis[i]){
             queue<int> q;
