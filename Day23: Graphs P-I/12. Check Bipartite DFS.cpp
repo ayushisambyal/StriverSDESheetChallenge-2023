@@ -13,8 +13,9 @@ bool dfsCheck(vector<int> adj[], vector<int> &color, int root){
 }
 
 bool isGraphBirpatite(vector<vector<int>> &edges) {
-    vector<int> color(edges.size(),-1);
-    int n=edges.size();
+    int n = edges.size();
+    vector<int> color(n,-1);
+    
     vector<int>adj[n];
     for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
@@ -24,6 +25,7 @@ bool isGraphBirpatite(vector<vector<int>> &edges) {
             }
         }
     }
+    
     for(int i=0; i<n; i++){
         if(color[i]==-1){
             if(dfsCheck(adj, color, i)==false) return false;
