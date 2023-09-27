@@ -7,7 +7,8 @@ bool dfsCheck(vector<int> adj[], vector<int> &color, int root){
         if(color[j]==-1){
             color[j]=1-color[root];
             if(!dfsCheck(adj, color, j)) return false;
-        }else if(color[j]==color[root]) return false;
+        }
+        else if(color[j]==color[root]) return false;
     }
     return true;
 }
