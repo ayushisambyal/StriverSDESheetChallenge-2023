@@ -1,35 +1,47 @@
-#include <bits/stdc++.h>
+#include <queue>
+#include <vector>
+
+bool check (int start, vector<int> adj[], int color[]){
+    queue<int> q;
+    q.push(start);
+
+    while(!q.empty()){
+        int node = q.front();
+        q.pop();
+        
+        for(auto x : adj[node]){
+            if(color[x] == -1){
+                color[x] = !color[node];
+                q.push(x);
+            }
+            else if(color[x] == color[node]) return false;
+        }
+    }
+    return true;
+}
 
 bool isGraphBirpatite(vector<vector<int>> &edges) {
-    vector<int> color(edges.size(),-1);
-    int n=edges.size();
-    vector<int>adj[n];
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            if(edges[i][j]==1){
-                adj[i].push_back(j);
-                adj[j].push_back(i);
+	int v = edges.size();
+    vector<int> adj[v + 1];
+    
+    for (int i = 0; i < v; i++) {
+        for (int j = 0; j < v; j++) {
+            if (edges[i][j] == 1) {
+                adj[i + 1].push_back(j + 1);
+                adj[j + 1].push_back(i + 1);
             }
         }
     }
-    for(int i=0; i<color.size(); i++){
-        if(color[i]==-1){
-            queue<int> q;
-            q.push(i);
-            color[i]=1;
-            while(!q.empty()){
-                int t= q.front();
-                q.pop();
-                for(auto j : adj[t]){
-                    if(color[j]==-1){
-                        color[j]=1-color[t];
-                        q.push(j);
-                    }else if(color[j]==color[t]){
-                        return false;
-                    }
-                }
-            }
+
+    
+    int color[v + 1];
+    for (int i = 1; i <= v; i++) color[i] = -1;
+        for(int i=0; i<v; i++){
+        if(color[i] == -1){
+            if(check(i, adj, color)==false)
+                return false;
         }
     }
+    
     return true;
 }
