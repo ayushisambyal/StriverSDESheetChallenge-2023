@@ -23,11 +23,11 @@ vector<pair<pair<int, int>, int>> calculatePrimsMST(int n, int m, vector<pair<pa
                 mnidx=j;
             }
         }
-            mst[mnidx]=true;
-            for(auto p : adj[mnidx]){
-                if(!mst[p.first] && key[p.first] > p.second){
-                    key[p.first] =p.second;
-                    parent[p.first]= mnidx;
+        mst[mnidx]=true;
+        for(auto p : adj[mnidx]){
+            if(!mst[p.first] && key[p.first] > p.second){
+                key[p.first] =p.second;
+                parent[p.first]= mnidx;
             }
         } 
     }
