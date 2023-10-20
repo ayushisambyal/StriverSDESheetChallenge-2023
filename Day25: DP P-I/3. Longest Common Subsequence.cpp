@@ -1,4 +1,6 @@
 // After space optimization
+// SC = O(min(n,m))
+
 #include <bits/stdc++.h>
 using namespace std;
 
