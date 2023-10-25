@@ -59,3 +59,27 @@ long countWaysToMakeChange(int *arr, int n, int sum)
     }
     return dp[n][sum];
 }
+
+
+// Space Optimized
+#include<bits/stdc++.h>
+
+long countWaysToMakeChange(int *a, int n, int val)
+{
+    vector<long> prev(val+1, 0), cur(val+1, 0);
+    
+    for(int i=0; i<=val; i++) prev[i] = (i % a[0] == 0);
+    
+    for(int ind=1; ind<n; ind++){
+        for(int T=0; T<=val; T++){
+            long notTake = prev[T];
+            long take=0;
+            
+            if(a[ind] <= (long)T) take = cur[T - a[ind]];
+            cur[T] = take + notTake;
+        }
+        prev = cur;
+    }
+    return prev[val];
+}
+
